@@ -18,24 +18,34 @@ namespace Finance
         {
         }
 
-        // This method will pull the data from database using specific queries for each set of information necessary
-        public Database SelectDataFromDatabase(string dateFrom, string dateTo, string ticker)
+        // This method will pull all the data from database using specific queries for each set of information necessary
+        public Database SelectDataFromDatabase()
         {
             return null; 
         }
 
 
         // The following Getters will be called by calculator to manipulate and from there will be called by graph
-        public List<DailyData> GetData()
+
+        /**
+         * Return data for specified ticker in specified date range
+         */
+        public List<DailyData> GetData(string tickerId, string dateFrom, string dateTo)
         {
             return this.data; 
         }
 
-        public List<Transaction> GetTransactions()
+        /** 
+         * Returns transactions in specified date range
+         */
+        public List<Transaction> GetTransactions(string tickerId, string dateFrom, string dateTo)
         {
             return this.transactions; 
         }
 
+        /** 
+         * Returns all tickers
+         */
         public List<Ticker> GetTickers()
         {
             return this.tickers; 
