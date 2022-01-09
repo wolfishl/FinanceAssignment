@@ -8,6 +8,7 @@ namespace Finance
 {
     class Calculator
     {
+
         /*
          * This method takes the ticker code, gets the data for that ticker, and calculates the value for that ticker
          * @Hadassah, this method will require the quantity owned of that ticker and the current price, given the ticker code
