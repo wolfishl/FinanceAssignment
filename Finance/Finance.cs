@@ -25,19 +25,8 @@ namespace Finance
 
         private void connect_click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = null;
-            try
-            {
-                sqlConnection = new SqlConnection("Server=LAPTOP-QOCJCAOK;Database=PortfolioData;Trusted_Connection=True;");
-                sqlConnection.Open();
-
-                SqlCommand command = new SqlCommand();
-
-            }
-            catch
-            {
-
-            }
+            Database database = new Database();
+            database.ConnectToDatabaseAndPullData(); 
         }
 
     }
