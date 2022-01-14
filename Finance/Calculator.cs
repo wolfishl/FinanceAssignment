@@ -24,7 +24,7 @@ namespace Finance
         {
             double quantity = getTotalQuantity(ticker, date);   
             List<DailyData> tickerData = database.GetData(ticker, date, date);
-            return double.Parse(tickerData[0].close) * quantity;
+            return tickerData[0].close * quantity;
         }
 
         /*
@@ -68,8 +68,8 @@ namespace Finance
                 DailyData RTUYesterday = RTUData[i];
                 DailyData tickerToday = tickerData[++i];
                 DailyData RTUToday = RTUData[i];
-                double tickerYield = CalculateDailyYield(double.Parse(tickerToday.close), double.Parse(tickerYesterday.close));
-                double RTUYield = CalculateDailyYield(double.Parse(RTUToday.close), double.Parse(RTUYesterday.close));
+                double tickerYield = CalculateDailyYield(tickerToday.close, tickerYesterday.close);
+                double RTUYield = CalculateDailyYield(RTUToday.close, RTUYesterday.close);
                 multipliedSum += tickerYield * RTUYield;
                 tickerSum += tickerYield;
                 RTUSum += RTUYield;
@@ -98,8 +98,8 @@ namespace Finance
                 DailyData RTUYesterday = RTUData[i];
                 DailyData tickerToday = tickerData[++i];
                 DailyData RTUToday = RTUData[i];
-                double tickerYield = CalculateDailyYield(double.Parse(tickerToday.close), double.Parse(tickerYesterday.close));
-                double RTUYield = CalculateDailyYield(double.Parse(RTUToday.close), double.Parse(RTUYesterday.close));
+                double tickerYield = CalculateDailyYield(tickerToday.close, tickerYesterday.close);
+                double RTUYield = CalculateDailyYield(RTUToday.close, RTUYesterday.close);
                 multipliedSum += tickerYield * RTUYield;
                 tickerSum += tickerYield;
                 RTUSum += RTUYield;
@@ -161,9 +161,9 @@ namespace Finance
                 List<Transaction> transactions = database.GetTransactions(ticker, day.date, day.date);
                 foreach(Transaction transaction in transactions)
                 {
-                    tradeQuantity += int.Parse(transaction.quantity);
+                    tradeQuantity += transaction.quantity;
                 }
-                tradingPnLs.Add(tradeQuantity * (double.Parse(day.close) - double.Parse(transactions[0].price)));
+                tradingPnLs.Add(tradeQuantity * (day.close - transactions[0].price));
             }
 
             return tradingPnLs;
@@ -179,7 +179,7 @@ namespace Finance
             List<Transaction> transactions = database.GetTransactions(ticker, database.getBeginningDate(), date);
             foreach (Transaction transaction in transactions)
             {
-                quantity += Double.Parse(transaction.quantity);
+                quantity += transaction.quantity;
             }
             return quantity;
         }
@@ -193,7 +193,7 @@ namespace Finance
             DateTime today = DateTime.Parse(date);
             DateTime yesterday = today.AddDays(-1);
             List<DailyData> data = database.GetData(ticker, yesterday.ToString(), date);
-            return getTotalQuantity(ticker, date) * (double.Parse(data[0].close) - double.Parse(data[1].close));
+            return getTotalQuantity(ticker, date) * (data[0].close - data[1].close);
         }
 
         /*
