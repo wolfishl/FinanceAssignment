@@ -31,7 +31,7 @@ namespace Finance
                 sqlConnection = new SqlConnection("Server=LAPTOP-QOCJCAOK;Database=PortfolioData;Trusted_Connection=True;");
                 sqlConnection.Open();
 
-                SqlCommand command = new SqlCommand()
+                SqlCommand command = new SqlCommand();
 
             }
             catch

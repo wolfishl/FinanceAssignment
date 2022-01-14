@@ -8,10 +8,15 @@ namespace Finance
 {
     class Database
     {
-
+        private readonly String BEGINNING_DATE = "2021-01-01";
         private List<DailyData> data = null;
         private List<Transaction> transactions = null;
         private List<Ticker> tickers = null;
+
+        public String getBeginningDate()
+        {
+            return this.BEGINNING_DATE;
+        }
 
         // This method will properly connect to our database
         public void ConnectToDatabase()
