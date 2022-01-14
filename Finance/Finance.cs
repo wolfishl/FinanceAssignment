@@ -32,11 +32,9 @@ namespace Finance
             //{
             //    sqlConnection = new SqlConnection("Server=LAPTOP-QOCJCAOK;Database=PortfolioData;Trusted_Connection=True;");
             //    sqlConnection.Open();
-
             //}
             //catch
             //{
-
             //}
         }
 
