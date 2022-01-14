@@ -39,7 +39,7 @@ namespace Finance
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(dataCmd);
                 DataSet dataSet = new DataSet();
                 dataAdapter.Fill(dataSet, "DailyData");
-                dailyData = PopulateData(dataSet);
+                data = PopulateData(dataSet);
 
                 SqlCommand transactionCmd = new SqlCommand(queryStringTransaction, sqlConnection);
                 transactionCmd.ExecuteNonQuery();
@@ -120,7 +120,7 @@ namespace Finance
          */
         public List<DailyData> GetData(string tickerId, string dateFrom, string dateTo)
         {
-            return this.dailyData; 
+            return this.data; 
         }
 
         /** 
