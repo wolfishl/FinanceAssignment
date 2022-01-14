@@ -34,9 +34,9 @@ namespace Finance
             // 
             // connect
             // 
-            this.connect.Location = new System.Drawing.Point(405, 117);
+            this.connect.Location = new System.Drawing.Point(603, 46);
             this.connect.Name = "connect";
-            this.connect.Size = new System.Drawing.Size(75, 23);
+            this.connect.Size = new System.Drawing.Size(117, 40);
             this.connect.TabIndex = 0;
             this.connect.Text = "Connect";
             this.connect.UseVisualStyleBackColor = true;
