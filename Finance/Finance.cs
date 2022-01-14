@@ -27,15 +27,6 @@ namespace Finance
         {
             Database database = new Database();
             database.ConnectToDatabaseAndPullData(); 
-            //SqlConnection sqlConnection = null;
-            //try
-            //{
-            //    sqlConnection = new SqlConnection("Server=LAPTOP-QOCJCAOK;Database=PortfolioData;Trusted_Connection=True;");
-            //    sqlConnection.Open();
-            //}
-            //catch
-            //{
-            //}
         }
 
     }
