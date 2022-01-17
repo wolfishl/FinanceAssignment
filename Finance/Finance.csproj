@@ -48,16 +48,16 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="Database.cs" />
-    <Compile Include="PnLReport.cs">
+    <Compile Include="Finance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PnLReport.Designer.cs">
-      <DependentUpon>PnLReport.cs</DependentUpon>
+    <Compile Include="Finance.Designer.cs">
+      <DependentUpon>Finance.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PnLReport.resx">
-      <DependentUpon>PnLReport.cs</DependentUpon>
+    <EmbeddedResource Include="Finance.resx">
+      <DependentUpon>Finance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
