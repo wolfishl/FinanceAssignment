@@ -51,6 +51,16 @@ namespace Finance
             tickers.Add(new Database.Ticker("VOLCAR", "5"));
             return tickers;
         }
+        private List<Database.Transaction> PopulateTransactionsFake()
+        {
+            List<Database.Transaction> transactions = new List<Database.Transaction>();
+            transactions.Add(new Database.Transaction("1", "01/01/2022", 200.05, 10));
+            transactions.Add(new Database.Transaction("2", "01/01/2022", 128.00, 15));
+            transactions.Add(new Database.Transaction("3", "01/01/2022", 46.76, 20));
+            transactions.Add(new Database.Transaction("4", "01/01/2022", 1050.50, 4));
+            transactions.Add(new Database.Transaction("5", "01/01/2022", 368.43, 6));
+            return transactions;
+        }
 
         private void tickersLbl_Click(object sender, EventArgs e)
         {
@@ -102,6 +112,7 @@ namespace Finance
         private void diplayValues()
         {
             List<Database.Ticker> tickers = PopulateTickersFake();
+            List<Database.Transaction> transactions = PopulateTransactionsFake();
             Label[] labels = { valueLbl1, valueLbl2, valueLbl3, valueLbl4, valueLbl5};
             int counter = 0;
             foreach (Database.Ticker ticker in tickers)

@@ -151,7 +151,14 @@ namespace Finance
             public string tickerId;
             public string date;
             public double price;
-            public int quantity; 
+            public int quantity;
+            public Transaction(String id, String tDate, double tPrice, int tQty)
+            {
+                tickerId = id;
+                date = tDate;
+                price = tPrice;
+                quantity = tQty;
+            }
         }
 
         public class Ticker
