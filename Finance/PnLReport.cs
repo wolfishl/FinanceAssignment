@@ -121,5 +121,78 @@ namespace Finance
                 labels[counter++].Text = values.ToString();
             }
         }
+
+        private void betaLabel_Click(object sender, EventArgs e)
+        {
+            displayBeta();
+        }
+        private void displayBeta()
+        {
+            List<Database.Ticker> tickers = PopulateTickersFake();
+            List<Database.Transaction> transactions = PopulateTransactionsFake();
+            Label[] labels = { betaLbl1, betaLbl2, betaLbl3, betaLbl4, betaLbl5 };
+            int counter = 0;
+            foreach (Database.Ticker ticker in tickers)
+            {
+                double values = calculator.CalculateBetaRTU(ticker.tickerName, dateTimePicker1.ToString());
+                labels[counter++].Text = values.ToString();
+            }
+        }
+
+        private void correlationLabel_Click(object sender, EventArgs e)
+        {
+            displayCorrelation();
+        }
+        private void displayCorrelation()
+        {
+            List<Database.Ticker> tickers = PopulateTickersFake();
+            List<Database.Transaction> transactions = PopulateTransactionsFake();
+            Label[] labels = { corrLbl1, corrLbl2, corrLbl3, corrLbl4, corrLbl5 };
+            int counter = 0;
+            foreach (Database.Ticker ticker in tickers)
+            {
+                double values = calculator.CalculateCorrelation(ticker.tickerName, dateTimePicker1.ToString());
+                labels[counter++].Text = values.ToString();
+            }
+        }
+
+        private void predictedMoveLbl_Click(object sender, EventArgs e)
+        {
+            calculatePredictedMove();
+        }
+        private void calculatePredictedMove()
+        {
+            List<Database.Ticker> tickers = PopulateTickersFake();
+            List<Database.Transaction> transactions = PopulateTransactionsFake();
+            Label[] labels = { predMovLbl1, predMoveLbl2, predMoveLbl3, predMoveLbl4, predMoveLbl5 };
+            int counter = 0;
+            foreach (Database.Ticker ticker in tickers)
+            {
+                double values = calculator.CalculatePredictedMove(ticker.tickerName, rtuMoveTxtBox.Text., dateTimePicker1.ToString());
+                labels[counter++].Text = values.ToString();
+            }
+        }
+
+        private void PnLLabel_Click(object sender, EventArgs e)
+        {
+            calculatePnL();
+        }
+        private void calculatePnL()
+        {
+            List<Database.Ticker> tickers = PopulateTickersFake();
+            List<Database.Transaction> transactions = PopulateTransactionsFake();
+            Label[] labels = { betaLbl1, betaLbl2, betaLbl3, betaLbl4, betaLbl5 };
+            int counter = 0;
+            foreach (Database.Ticker ticker in tickers)
+            {
+                double values = calculator.CalculateTotalDailyPnL(ticker.tickerName, dateTimePicker1.ToString());
+                labels[counter++].Text = values.ToString();
+            }
+        }
+
+        private void predictedTotalPnL_TextChanged(object sender, EventArgs e)
+        {
+            calculator.CalculateTotalPredictedPnL();
+        }
     }
 }

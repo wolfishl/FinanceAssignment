@@ -41,7 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.quantityLbl = new System.Windows.Forms.Label();
             this.qtyLbl1 = new System.Windows.Forms.Label();
             this.qtyLbl2 = new System.Windows.Forms.Label();
@@ -78,6 +77,7 @@
             this.pnl3 = new System.Windows.Forms.Label();
             this.pnl4 = new System.Windows.Forms.Label();
             this.pnl5 = new System.Windows.Forms.Label();
+            this.predictedTotalPnL = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // dateLabel
@@ -195,15 +195,6 @@
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 14;
             this.label4.Text = "Ticker 5";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(463, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "PredictedPnL";
             // 
             // quantityLbl
             // 
@@ -326,6 +317,7 @@
             this.betaLabel.Size = new System.Drawing.Size(78, 13);
             this.betaLabel.TabIndex = 28;
             this.betaLabel.Text = "Beta to RTU";
+            this.betaLabel.Click += new System.EventHandler(this.betaLabel_Click);
             // 
             // betaLbl1
             // 
@@ -381,6 +373,7 @@
             this.correlationLabel.Size = new System.Drawing.Size(68, 13);
             this.correlationLabel.TabIndex = 34;
             this.correlationLabel.Text = "Correlation";
+            this.correlationLabel.Click += new System.EventHandler(this.correlationLabel_Click);
             // 
             // predictedMoveLbl
             // 
@@ -391,6 +384,7 @@
             this.predictedMoveLbl.Size = new System.Drawing.Size(96, 13);
             this.predictedMoveLbl.TabIndex = 35;
             this.predictedMoveLbl.Text = "Predicted Move";
+            this.predictedMoveLbl.Click += new System.EventHandler(this.predictedMoveLbl_Click);
             // 
             // PnLLabel
             // 
@@ -401,6 +395,7 @@
             this.PnLLabel.Size = new System.Drawing.Size(29, 13);
             this.PnLLabel.TabIndex = 36;
             this.PnLLabel.Text = "PnL";
+            this.PnLLabel.Click += new System.EventHandler(this.PnLLabel_Click);
             // 
             // corrLbl1
             // 
@@ -537,11 +532,20 @@
             this.pnl5.TabIndex = 51;
             this.pnl5.Text = "PnL 5";
             // 
+            // predictedTotalPnL
+            // 
+            this.predictedTotalPnL.Location = new System.Drawing.Point(466, 25);
+            this.predictedTotalPnL.Name = "predictedTotalPnL";
+            this.predictedTotalPnL.Size = new System.Drawing.Size(100, 20);
+            this.predictedTotalPnL.TabIndex = 52;
+            this.predictedTotalPnL.TextChanged += new System.EventHandler(this.predictedTotalPnL_TextChanged);
+            // 
             // PnLReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 236);
+            this.Controls.Add(this.predictedTotalPnL);
             this.Controls.Add(this.pnl5);
             this.Controls.Add(this.pnl4);
             this.Controls.Add(this.pnl3);
@@ -578,7 +582,6 @@
             this.Controls.Add(this.qtyLbl2);
             this.Controls.Add(this.qtyLbl1);
             this.Controls.Add(this.quantityLbl);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -615,7 +618,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label quantityLbl;
         private System.Windows.Forms.Label qtyLbl1;
         private System.Windows.Forms.Label qtyLbl2;
@@ -652,5 +654,6 @@
         private System.Windows.Forms.Label pnl3;
         private System.Windows.Forms.Label pnl4;
         private System.Windows.Forms.Label pnl5;
+        private System.Windows.Forms.TextBox predictedTotalPnL;
     }
 }
