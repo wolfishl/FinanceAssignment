@@ -214,6 +214,7 @@
             this.quantityLbl.Size = new System.Drawing.Size(54, 13);
             this.quantityLbl.TabIndex = 16;
             this.quantityLbl.Text = "Quantity";
+            this.quantityLbl.Click += new System.EventHandler(this.quantityLbl_Click);
             // 
             // qtyLbl1
             // 
@@ -269,6 +270,7 @@
             this.valueLbl.Size = new System.Drawing.Size(39, 13);
             this.valueLbl.TabIndex = 22;
             this.valueLbl.Text = "Value";
+            this.valueLbl.Click += new System.EventHandler(this.valueLbl_Click);
             // 
             // valueLbl1
             // 

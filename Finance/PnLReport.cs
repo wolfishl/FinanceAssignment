@@ -21,6 +21,7 @@ namespace Finance
             database = new Database();
             calculator = new Calculator(database);
             displayTickers();
+            displayQty();
         }
 
         void recalculate()
@@ -88,5 +89,26 @@ namespace Finance
 
         }
 
+        private void quantityLbl_Click(object sender, EventArgs e)
+        {
+            displayQty();
+        }
+
+        private void valueLbl_Click(object sender, EventArgs e)
+        {
+            diplayValues();
+        }
+
+        private void diplayValues()
+        {
+            List<Database.Ticker> tickers = PopulateTickersFake();
+            Label[] labels = { valueLbl1, valueLbl2, valueLbl3, valueLbl4, valueLbl5};
+            int counter = 0;
+            foreach (Database.Ticker ticker in tickers)
+            {
+                double values = calculator.GetPositionValue(ticker.tickerName, dateTimePicker1.ToString());
+                labels[counter++].Text = values.ToString();
+            }
+        }
     }
 }
