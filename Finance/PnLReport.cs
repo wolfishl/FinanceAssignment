@@ -68,7 +68,7 @@ namespace Finance
         private void displayQty()
         {
             List<Database.Ticker> tickers = PopulateTickersFake();
-            Label[] labels = { };
+            Label[] labels = {qtyLbl1,qtyLbl2,qtyLbl3,qtyLbl4,qtyLbl5};
             int counter = 0;
             foreach (Database.Ticker ticker in tickers)
             {
@@ -82,5 +82,11 @@ namespace Finance
         {
             recalculate();
         }
+
+        private void PnLReport_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
