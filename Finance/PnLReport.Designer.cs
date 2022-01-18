@@ -35,8 +35,12 @@
             this.rtuMoveLbl = new System.Windows.Forms.Label();
             this.rtuMoveTxtBox = new System.Windows.Forms.TextBox();
             this.predictedPnLLbl = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.recalculateButton = new System.Windows.Forms.Button();
+            this.tickersLbl = new System.Windows.Forms.Label();
+            this.tickerLbl1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dateLabel
@@ -71,6 +75,7 @@
             this.portfolioValueTxtBox.Name = "portfolioValueTxtBox";
             this.portfolioValueTxtBox.Size = new System.Drawing.Size(100, 20);
             this.portfolioValueTxtBox.TabIndex = 3;
+            this.portfolioValueTxtBox.TextChanged += new System.EventHandler(this.portfolioValueTxtBox_TextChanged);
             // 
             // rtuMoveLbl
             // 
@@ -87,6 +92,7 @@
             this.rtuMoveTxtBox.Name = "rtuMoveTxtBox";
             this.rtuMoveTxtBox.Size = new System.Drawing.Size(100, 20);
             this.rtuMoveTxtBox.TabIndex = 5;
+            this.rtuMoveTxtBox.TextChanged += new System.EventHandler(this.rtuMoveTxtBox_TextChanged);
             // 
             // predictedPnLLbl
             // 
@@ -97,30 +103,68 @@
             this.predictedPnLLbl.TabIndex = 6;
             this.predictedPnLLbl.Text = "Predicted PnL:";
             // 
-            // textBox1
+            // tickersLbl
             // 
-            this.textBox1.Location = new System.Drawing.Point(466, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.tickersLbl.AutoSize = true;
+            this.tickersLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tickersLbl.Location = new System.Drawing.Point(12, 66);
+            this.tickersLbl.Name = "tickersLbl";
+            this.tickersLbl.Size = new System.Drawing.Size(49, 13);
+            this.tickersLbl.TabIndex = 9;
+            this.tickersLbl.Text = "Tickers";
+            this.tickersLbl.Click += new System.EventHandler(this.tickersLbl_Click);
             // 
-            // recalculateButton
+            // tickerLbl1
             // 
-            this.recalculateButton.Location = new System.Drawing.Point(523, 201);
-            this.recalculateButton.Name = "recalculateButton";
-            this.recalculateButton.Size = new System.Drawing.Size(99, 23);
-            this.recalculateButton.TabIndex = 8;
-            this.recalculateButton.Text = "Recalculate";
-            this.recalculateButton.UseVisualStyleBackColor = true;
-            this.recalculateButton.Click += new System.EventHandler(this.recalculateButton_Click);
+            this.tickerLbl1.AutoSize = true;
+            this.tickerLbl1.Location = new System.Drawing.Point(9, 88);
+            this.tickerLbl1.Name = "tickerLbl1";
+            this.tickerLbl1.Size = new System.Drawing.Size(0, 13);
+            this.tickerLbl1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 113);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 137);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 160);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 185);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 14;
             // 
             // PnLReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 236);
-            this.Controls.Add(this.recalculateButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tickerLbl1);
+            this.Controls.Add(this.tickersLbl);
             this.Controls.Add(this.predictedPnLLbl);
             this.Controls.Add(this.rtuMoveTxtBox);
             this.Controls.Add(this.rtuMoveLbl);
@@ -144,7 +188,11 @@
         private System.Windows.Forms.Label rtuMoveLbl;
         private System.Windows.Forms.TextBox rtuMoveTxtBox;
         private System.Windows.Forms.Label predictedPnLLbl;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button recalculateButton;
+        private System.Windows.Forms.Label tickersLbl;
+        private System.Windows.Forms.Label tickerLbl1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

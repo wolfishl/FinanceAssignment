@@ -15,7 +15,7 @@ namespace Finance
     {
         public Finance()
         {
-            InitializeComponent();
+           // InitializeComponent();
         }
 
         private void Finance_Load(object sender, EventArgs e)
