@@ -162,13 +162,14 @@ namespace Finance
         }
         private void calculatePredictedMove()
         {
+            double RTU = Convert.ToDouble(rtuMoveTxtBox.Text);
             List<Database.Ticker> tickers = PopulateTickersFake();
             List<Database.Transaction> transactions = PopulateTransactionsFake();
             Label[] labels = { predMovLbl1, predMoveLbl2, predMoveLbl3, predMoveLbl4, predMoveLbl5 };
             int counter = 0;
             foreach (Database.Ticker ticker in tickers)
             {
-                double values = calculator.CalculatePredictedMove(ticker.tickerName, rtuMoveTxtBox.Text., dateTimePicker1.ToString());
+                double values = calculator.CalculatePredictedMove(ticker.tickerName, RTU, dateTimePicker1.ToString());
                 labels[counter++].Text = values.ToString();
             }
         }
@@ -176,6 +177,7 @@ namespace Finance
         private void PnLLabel_Click(object sender, EventArgs e)
         {
             calculatePnL();
+
         }
         private void calculatePnL()
         {
