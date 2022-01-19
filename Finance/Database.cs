@@ -63,14 +63,14 @@ namespace Finance
                 }
             }
 
-        private List<Ticker> PopulateTickers(DataSet tickerSet)
+        public List<Ticker> PopulateTickers(DataSet tickerSet)
         {
             List<Ticker> tickers = new List<Ticker>();
             int numRows = tickerSet.Tables[0].Rows.Count;
             var table = tickerSet.Tables[0];
             for (int row = 0; row < numRows; row++)
             {
-                Ticker ticker = new Ticker();
+                Ticker ticker = new Ticker("","");
                 ticker.tickerId = table.Rows[row][0].ToString();
                 ticker.tickerName = table.Rows[row][1].ToString();
                 tickers.Add(ticker);
@@ -78,7 +78,7 @@ namespace Finance
             return tickers;
         }
 
-        private List<Transaction> PopulateTransactions(DataSet transactionSet)
+        public List<Transaction> PopulateTransactions(DataSet transactionSet)
         {
             List<Transaction> transactions = new List<Transaction>();
             int numRows = transactionSet.Tables[0].Rows.Count;
@@ -151,13 +151,19 @@ namespace Finance
             public string tickerId;
             public string date;
             public double price;
-            public int quantity; 
+            public int quantity;
+
         }
 
         public class Ticker
         {
             public string tickerId;
-            public string tickerName; 
+            public string tickerName;
+            public Ticker(String ticker, String id)
+            {
+                tickerId = id;
+                tickerName = ticker;
+            }
         }
     }
 }
