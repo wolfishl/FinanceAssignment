@@ -21,7 +21,6 @@ namespace Finance
             database = new Database();
             calculator = new Calculator(database);
             displayTickers();
-            displayQty();
         }
 
         void recalculate()
@@ -51,16 +50,16 @@ namespace Finance
             tickers.Add(new Database.Ticker("VOLCAR", "5"));
             return tickers;
         }
-        private List<Database.Transaction> PopulateTransactionsFake()
-        {
-            List<Database.Transaction> transactions = new List<Database.Transaction>();
-            transactions.Add(new Database.Transaction("1", "01/01/2022", 200.05, 10));
-            transactions.Add(new Database.Transaction("2", "01/01/2022", 128.00, 15));
-            transactions.Add(new Database.Transaction("3", "01/01/2022", 46.76, 20));
-            transactions.Add(new Database.Transaction("4", "01/01/2022", 1050.50, 4));
-            transactions.Add(new Database.Transaction("5", "01/01/2022", 368.43, 6));
-            return transactions;
-        }
+ //       private List<Database.Transaction> PopulateTransactionsFake()
+   //     {
+     //       List<Database.Transaction> transactions = new List<Database.Transaction>();
+       //     transactions.Add(new Database.Transaction("1", "01/01/2022", 200.05, 10));
+         //   transactions.Add(new Database.Transaction("2", "01/01/2022", 128.00, 15));
+           // transactions.Add(new Database.Transaction("3", "01/01/2022", 46.76, 20));
+            //transactions.Add(new Database.Transaction("4", "01/01/2022", 1050.50, 4));
+        //    transactions.Add(new Database.Transaction("5", "01/01/2022", 368.43, 6));
+        //    return transactions;
+        //}
 
         private void tickersLbl_Click(object sender, EventArgs e)
         {
@@ -76,18 +75,31 @@ namespace Finance
                 labels[counter++].Text = ticker.tickerName;
             }
         }
-        private void displayQty()
-        {
-            List<Database.Ticker> tickers = PopulateTickersFake();
-            Label[] labels = {qtyLbl1,qtyLbl2,qtyLbl3,qtyLbl4,qtyLbl5};
-            int counter = 0;
-            foreach (Database.Ticker ticker in tickers)
-            {
-                double quantity = calculator.getTotalQuantity(ticker.tickerName, dateTimePicker1.Value.ToString());
-                labels[counter++].Text = quantity.ToString();
-            }
+        //private void displayQty()
+        //{
+        //    List<Database.Ticker> tickers = PopulateTickersFake();
+        //    Label[] labels = {qtyLbl1,qtyLbl2,qtyLbl3,qtyLbl4,qtyLbl5};
+        //    int counter = 0;
+        //    foreach (Database.Ticker ticker in tickers)
+        //    {
+        //        //double quantity = calculator.getTotalQuantity(ticker.tickerName, dateTimePicker1.Value.ToString());
+        //        double quantity = getTotalQuantity(ticker.tickerName);
+        //        labels[counter++].Text = quantity.ToString();
+        //    }
        
-        }
+        //}
+        //private double getTotalQuantity(String tickerName)
+        //{
+        //    double qty = 0;
+        //    switch (tickerName)
+        //    {
+        //        case "HMC";
+        //            qty = 100;
+        //            break;
+
+        //    }
+        //    return qty;
+        //}
 
         private void rtuMoveTxtBox_TextChanged(object sender, EventArgs e)
         {
@@ -101,7 +113,7 @@ namespace Finance
 
         private void quantityLbl_Click(object sender, EventArgs e)
         {
-            displayQty();
+            //displayQty();
         }
 
         private void valueLbl_Click(object sender, EventArgs e)
@@ -112,7 +124,7 @@ namespace Finance
         private void diplayValues()
         {
             List<Database.Ticker> tickers = PopulateTickersFake();
-            List<Database.Transaction> transactions = PopulateTransactionsFake();
+            //List<Database.Transaction> transactions = PopulateTransactionsFake();
             Label[] labels = { valueLbl1, valueLbl2, valueLbl3, valueLbl4, valueLbl5};
             int counter = 0;
             foreach (Database.Ticker ticker in tickers)
@@ -129,7 +141,7 @@ namespace Finance
         private void displayBeta()
         {
             List<Database.Ticker> tickers = PopulateTickersFake();
-            List<Database.Transaction> transactions = PopulateTransactionsFake();
+            //List<Database.Transaction> transactions = PopulateTransactionsFake();
             Label[] labels = { betaLbl1, betaLbl2, betaLbl3, betaLbl4, betaLbl5 };
             int counter = 0;
             foreach (Database.Ticker ticker in tickers)
@@ -146,7 +158,7 @@ namespace Finance
         private void displayCorrelation()
         {
             List<Database.Ticker> tickers = PopulateTickersFake();
-            List<Database.Transaction> transactions = PopulateTransactionsFake();
+            //List<Database.Transaction> transactions = PopulateTransactionsFake();
             Label[] labels = { corrLbl1, corrLbl2, corrLbl3, corrLbl4, corrLbl5 };
             int counter = 0;
             foreach (Database.Ticker ticker in tickers)
@@ -164,7 +176,7 @@ namespace Finance
         {
             double RTU = Convert.ToDouble(rtuMoveTxtBox.Text);
             List<Database.Ticker> tickers = PopulateTickersFake();
-            List<Database.Transaction> transactions = PopulateTransactionsFake();
+            //List<Database.Transaction> transactions = PopulateTransactionsFake();
             Label[] labels = { predMovLbl1, predMoveLbl2, predMoveLbl3, predMoveLbl4, predMoveLbl5 };
             int counter = 0;
             foreach (Database.Ticker ticker in tickers)
@@ -179,10 +191,10 @@ namespace Finance
             calculatePnL();
 
         }
-        private void calculatePnL()
+        public void calculatePnL()
         {
             List<Database.Ticker> tickers = PopulateTickersFake();
-            List<Database.Transaction> transactions = PopulateTransactionsFake();
+            //List<Database.Transaction> transactions = PopulateTransactionsFake();
             Label[] labels = { betaLbl1, betaLbl2, betaLbl3, betaLbl4, betaLbl5 };
             int counter = 0;
             foreach (Database.Ticker ticker in tickers)
@@ -194,7 +206,7 @@ namespace Finance
 
         private void predictedTotalPnL_TextChanged(object sender, EventArgs e)
         {
-            calculator.CalculateTotalPredictedPnL();
+            //calculator.CalculateTotalPredictedPnL(calculatePnL);
         }
     }
 }

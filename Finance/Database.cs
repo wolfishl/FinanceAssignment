@@ -85,7 +85,7 @@ namespace Finance
             var table = transactionSet.Tables[0];
             for (int row = 0; row < numRows; row++)
             {
-                Transaction transaction = new Transaction("","","","","");
+                Transaction transaction = new Transaction();
                 transaction.tickerId = table.Rows[row][1].ToString();
                 transaction.date = table.Rows[row][2].ToString();
                 transaction.price = Convert.ToDouble(table.Rows[row][3]);
@@ -152,13 +152,7 @@ namespace Finance
             public string date;
             public double price;
             public int quantity;
-            public Transaction(String id, String tDate, double tPrice, int tQty)
-            {
-                tickerId = id;
-                date = tDate;
-                price = tPrice;
-                quantity = tQty;
-            }
+
         }
 
         public class Ticker
